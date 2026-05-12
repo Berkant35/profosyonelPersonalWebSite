@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette */
+  --color-ink: #213448;
+  --color-ink-soft: #2c4361;
+  --color-sea: #547792;
+  --color-sea-soft: #6e8ca4;
+  --color-cream: #f3e3d0;
+  --color-cream-soft: #faf1e3;
+  --color-sand: #d2c4b4;
+  --color-sand-soft: #dccfbf;
+  --color-success: #3f7d58;
+  --color-warning: #c97b3b;
+  --color-error: #a6453a;
+
+  /* Fonts */
+  --font-sans:
+    var(--font-montserrat), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Radius */
+  --radius-card: 16px;
+  --radius-hero: 24px;
+  --radius-input: 12px;
+
+  /* Shadow */
+  --shadow-card: 0 4px 24px -8px rgba(33, 52, 72, 0.1);
+  --shadow-hover: 0 8px 32px -8px rgba(33, 52, 72, 0.18);
+
+  /* Typography */
+  --text-display: 3.5rem;
+  --text-display--line-height: 4rem;
+  --text-display--font-weight: 700;
+  --text-display-mobile: 2.25rem;
+  --text-display-mobile--line-height: 2.625rem;
+  --text-display-mobile--font-weight: 700;
+  --text-h1: 2.5rem;
+  --text-h1--line-height: 3rem;
+  --text-h1--font-weight: 700;
+  --text-h2: 1.875rem;
+  --text-h2--line-height: 2.5rem;
+  --text-h2--font-weight: 600;
+  --text-h3: 1.375rem;
+  --text-h3--line-height: 1.875rem;
+  --text-h3--font-weight: 600;
+  --text-body: 1rem;
+  --text-body--line-height: 1.625rem;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.375rem;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1rem;
+  --text-label--font-weight: 600;
+  --text-label--letter-spacing: 0.08em;
+
+  /* Container */
+  --container-content: 72rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+    background: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--color-sea);
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-cream);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
