@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:dodgerblue-mule-384706.hostingersite.com)",
+      "Bash(mkdir -p /Users/berkantcalikusu/Desktop/gamze_web_site/raw)",
+      "Bash(curl -sL -o index.html https://dodgerblue-mule-384706.hostingersite.com/)",
+      "Bash(curl -sL -o about.html https://dodgerblue-mule-384706.hostingersite.com/about-us/)",
+      "Bash(curl -sL -o contact.html https://dodgerblue-mule-384706.hostingersite.com/contact/)",
+      "Bash(curl -sL -o sitemap.xml https://dodgerblue-mule-384706.hostingersite.com/sitemap.xml)",
+      "Bash(curl -sL https://dodgerblue-mule-384706.hostingersite.com/wp-sitemap-posts-page-1.xml)",
+      "Bash(curl -sL https://dodgerblue-mule-384706.hostingersite.com/wp-sitemap-posts-post-1.xml)",
+      "Bash(curl -sL -o services.html https://dodgerblue-mule-384706.hostingersite.com/services/)",
+      "Bash(curl -sL -o news.html https://dodgerblue-mule-384706.hostingersite.com/news/)",
+      "Bash(curl -sL -o post1.html \"https://dodgerblue-mule-384706.hostingersite.com/2024/02/08/malesuada-fames-acturpis-egestas/\")",
+      "Bash(textutil -convert txt -encoding UTF-8 index.html about.html contact.html services.html news.html post1.html)",
+      "WebFetch(domain:erturkyilmaz.com)",
+      "Bash(curl -sL -o erturk_home.html https://erturkyilmaz.com/)",
+      "Bash(textutil -convert txt -encoding UTF-8 erturk_home.html)",
+      "Bash(python3 -c ' *)",
+      "Bash(git *)",
+      "Bash(/Users/berkantcalikusu/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/brainstorming/scripts/start-server.sh *)"
+    ]
+  }
+}
