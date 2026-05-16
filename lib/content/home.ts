@@ -31,9 +31,9 @@ export const homeContent: HomeContent = {
         [
           { text: 'I graduated from ' },
           { text: 'Boğaziçi University Psychology', bold: true },
-          { text: ' with high honors. Completing my ' },
+          { text: ' with high honors. I completed my ' },
           { text: 'Koç University Clinical Psychology MA', bold: true },
-          { text: ', I specialised in the research, assessment, prevention and treatment of emotional and behavioural difficulties.' },
+          { text: ', specialising in the research, assessment, prevention and treatment of emotional and behavioural difficulties.' },
         ],
         [
           { text: 'Using ' },
