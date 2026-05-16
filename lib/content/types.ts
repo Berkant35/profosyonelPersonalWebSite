@@ -8,7 +8,7 @@ export type Paragraph = string
 export type LocaleParagraphs = Record<Locale, Paragraph[]>
 
 export type RichTextPart = { text: string; bold?: boolean }
-export type LocaleRichText = Record<Locale, RichTextPart[]>
+export type LocaleRichTextParagraphs = Record<Locale, RichTextPart[][]>
 
 export type SiteSettings = {
   email: string
@@ -27,7 +27,7 @@ export type HomeContent = {
   hero: {
     eyebrow: LocaleString
     title: LocaleString
-    subtitle: LocaleRichText
+    subtitle: LocaleRichTextParagraphs
     ctaPrimaryLabel: LocaleString
     ctaSecondaryLabel: LocaleString
   }

@@ -16,17 +16,21 @@ export function Hero({ locale }: { locale: Locale }) {
           <h1 className="mt-5 text-balance text-4xl font-bold leading-tight tracking-tight text-ink sm:text-5xl lg:text-6xl lg:leading-[1.1]">
             {hero.title[locale]}
           </h1>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/80 lg:text-lg">
-            {hero.subtitle[locale].map((part, i) =>
-              part.bold ? (
-                <strong key={i} className="font-semibold text-ink">
-                  {part.text}
-                </strong>
-              ) : (
-                <span key={i}>{part.text}</span>
-              ),
-            )}
-          </p>
+          <div className="mt-5 max-w-xl space-y-3 text-base leading-relaxed text-ink/80 lg:text-lg">
+            {hero.subtitle[locale].map((paragraph, pIdx) => (
+              <p key={pIdx}>
+                {paragraph.map((part, i) =>
+                  part.bold ? (
+                    <strong key={i} className="font-semibold text-ink">
+                      {part.text}
+                    </strong>
+                  ) : (
+                    <span key={i}>{part.text}</span>
+                  ),
+                )}
+              </p>
+            ))}
+          </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={siteSettings.whatsappUrl} external size="lg">
               {hero.ctaPrimaryLabel[locale]}

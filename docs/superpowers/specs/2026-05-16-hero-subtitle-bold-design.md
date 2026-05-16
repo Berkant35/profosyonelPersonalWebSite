@@ -4,6 +4,8 @@
 **İlgili ClickUp task:** #86exmczcc — "Home Page - Açıklama"
 **Kapsam:** Anasayfa hero bölümünün alt başlık (subtitle) metninde belirli anahtar ifadeleri bold göstermek.
 
+> **Revision (2026-05-17):** Initial implementation used the short subtitle text. Revised to use the full two-paragraph description from the ClickUp task, with paragraph-aware rendering and an EN translation that preserves the same bold emphases.
+
 ## Amaç
 
 ClickUp task'ında Gamze Sevin'in talebi: "Açıklamadaki metini bold yapılan kelimeler de dikkate alarak" yeni metinle değiştirmek. İnceleme sonucu:
@@ -18,18 +20,16 @@ Bu spec yalnızca **bold styling** kapsamını ele alır; metin içerikleri değ
 **TR:**
 - `Boğaziçi Üniversitesi Psikoloji`
 - `Koç Üniversitesi Klinik Psikoloji`
-- `Bilişsel Davranışçı Terapi`
+- `Bilişsel Davranışçı Terapi, Sorun Çözme Terapisi`
 - `EMDR`
-- `Sorun Çözme Terapisi`
-- `yetişkin, çift, çocuk ve ergenlere`
+- `yetişkinlere, çiftlere ve ergenlere`
 
 **EN:**
 - `Boğaziçi University Psychology`
-- `Koç University Clinical Psychology`
-- `CBT`
+- `Koç University Clinical Psychology MA`
+- `Cognitive Behavioural Therapy, Problem-Solving Therapy`
 - `EMDR`
-- `Problem-Solving Therapy`
-- `adults, couples, children and adolescents`
+- `adults, couples and adolescents`
 
 ## Mimari
 
@@ -37,27 +37,27 @@ Proje, içerik (data) ile sunum (component) arasında zaten net bir ayrım kulla
 
 ### 1. Tip katmanı — `lib/content/types.ts`
 
-İki yeni tip eklenir:
+İki tip eklenir:
 
 ```ts
 export type RichTextPart = { text: string; bold?: boolean }
-export type LocaleRichText = Record<Locale, RichTextPart[]>
+export type LocaleRichTextParagraphs = Record<Locale, RichTextPart[][]>
 ```
 
-`HomeContent.hero.subtitle` tipi `LocaleString` yerine `LocaleRichText` olur. Bu, başka bir hero/teaser alanında benzer ihtiyaç çıkarsa yeniden kullanılabilir bir desendir; ancak şu an yalnızca subtitle için kullanılır (YAGNI — başka alanlar bu spec kapsamında değişmez).
+`HomeContent.hero.subtitle` tipi `LocaleRichTextParagraphs` olur — her locale için paragraf listesi, her paragraf da `RichTextPart` listesi. Bu, tek düzey `RichTextPart[]` yerine iki boyutlu (paragraflar × parçalar) bir modeldir.
 
 ### 2. İçerik katmanı — `lib/content/home.ts`
 
-`hero.subtitle.tr` ve `hero.subtitle.en` her biri bir `RichTextPart[]` haline gelir. Bold ifadeler `{ text: '…', bold: true }`, aralardaki düz metin ve noktalama `{ text: '…' }` olarak parçalanır. Sıra ve boşluklar bire bir mevcut metni korumalıdır (sıfır karakter farkı).
+`hero.subtitle.tr` ve `hero.subtitle.en` her biri iki elemanlı `RichTextPart[][]` haline gelir. TR P1: Boğaziçi ve Koç Üniversitesi eğitimini anlatan cümle. TR P2: BDT/Sorun Çözme/EMDR ve hedef kitle. EN P1 ve EN P2 aynı yapının İngilizce çevirisidir. Bold ifadeler `{ text: '…', bold: true }`, düz metin `{ text: '…' }` olarak parçalanır.
 
 ### 3. Sunum katmanı — `components/sections/Hero.tsx`
 
-Subtitle render eden `<p>` içinde `hero.subtitle[locale].map(...)` ile parçalar gezilir:
+Subtitle artık tek `<p>` yerine `<div className="mt-5 max-w-xl space-y-3 text-base leading-relaxed text-ink/80 lg:text-lg">` wrapper içinde iki `<p>` olarak render edilir. Dış döngü paragrafları, iç döngü her paragrafın parçalarını gezilir:
 
 - `part.bold === true` → `<strong className="font-semibold text-ink">{part.text}</strong>`
-- aksi halde → `<span>{part.text}</span>` (veya React fragment ile düz metin)
+- aksi halde → `<span>{part.text}</span>`
 
-Bold weight olarak `font-semibold` kullanılır (gövde `text-ink/80` üzerinde semibold + `text-ink` renk koyulaştırması bold algısını yeterince güçlü verir; `font-bold` cream/sand zemin üzerinde fazla ağır kalır ve sitede zaten semibold yaygın bir vurgu ağırlığıdır). Diğer Hero stilleri (font, leading, margin) değişmez.
+`space-y-3` iki paragraf arasında görsel boşluk sağlar. Diğer Hero stilleri değişmez.
 
 ## Etki alanı
 
