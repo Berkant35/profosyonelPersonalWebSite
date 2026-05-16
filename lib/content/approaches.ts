@@ -8,8 +8,8 @@ export const therapyApproaches: TherapyApproach[] = [
       en: 'Cognitive Behavioral Therapy (CBT)',
     },
     ozet: {
-      tr: 'Düşünce, duygu ve davranışlar arasındaki ilişkileri hedef alan, bilimsel temelli kısa süreli psikoterapi.',
-      en: 'A structured, evidence-based short-term therapy that targets the links between thoughts, emotions and behaviour.',
+      tr: 'Düşünce duygu ve davranışlar arasındaki ilişkileri hedef alarak psikolojik sorunlarda iyileşmeyi amaçlayan bir psikoterapi yaklaşımı.',
+      en: 'A psychotherapy approach that targets the relationships between thoughts, feelings and behaviour to support recovery from psychological difficulties.',
     },
     body: {
       tr: [
@@ -61,8 +61,8 @@ export const therapyApproaches: TherapyApproach[] = [
       en: 'Problem-Solving Therapy (PST)',
     },
     ozet: {
-      tr: 'Günlük yaşam güçlüklerine karşı işlevsel başa çıkma becerileri kazandıran, kısa süreli terapi.',
-      en: 'A short-term therapy that teaches functional coping skills for everyday life challenges.',
+      tr: 'Günlük yaşam sorunları ile başa çıkmak için tutum, yöntem ve strateji kazandıran bir psikoterapi yaklaşımı.',
+      en: 'A psychotherapy approach that builds the attitudes, methods and strategies for coping with everyday life problems.',
     },
     body: {
       tr: [
@@ -104,8 +104,8 @@ export const therapyApproaches: TherapyApproach[] = [
       en: 'EMDR (Eye Movement Desensitization and Reprocessing)',
     },
     ozet: {
-      tr: 'Travmatik ve olumsuz anıların işlenmesine dayanan, bilimsel temelli psikoterapi yöntemi.',
-      en: 'An evidence-based psychotherapy method that helps process traumatic and adverse memories.',
+      tr: 'Psikolojik sıkıntıların kaynağını oluşturan travmatik ve olumsuz yaşantıların işlenmesine dayanan bir psikoterapi yaklaşımı.',
+      en: 'A psychotherapy approach based on reprocessing the traumatic and adverse experiences that underlie psychological distress.',
     },
     body: {
       tr: [

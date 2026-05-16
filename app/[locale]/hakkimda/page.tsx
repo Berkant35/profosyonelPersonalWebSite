@@ -9,6 +9,18 @@ import { aboutContent } from '@/lib/content/about'
 import { siteSettings } from '@/lib/content/site'
 import { routing, type Locale } from '@/i18n/routing'
 
+function getInstitutionLogo(name: string): string | null {
+  if (name.includes('Koç')) return '/logos/koc.svg'
+  if (name.includes('Boğaziçi')) return '/logos/bogazici.svg'
+  if (name.includes('Lape') || name.includes('La Paix')) return '/logos/lape.png'
+  if (name.includes('Türk Psikologlar') || name.includes('Turkish Psychological')) return '/logos/tpd.svg'
+  if (name.includes('Bilişsel Davranışçı Psikoterapiler') || name.includes('Association of CBT'))
+    return '/logos/bdpd.svg'
+  if (name.includes('Davranış Bilimleri') || name.includes('Institute of Behavioural'))
+    return '/logos/dbe.jpg'
+  return null
+}
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }
@@ -111,29 +123,55 @@ export default async function AboutPage({
             <section>
               <h2 className="text-2xl font-semibold text-ink">{t('experienceTitle')}</h2>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                {aboutContent.experience[locale].map((e) => (
-                  <li
-                    key={e}
-                    className="rounded-2xl bg-cream-soft px-4 py-3 text-sm text-ink"
-                  >
-                    {e}
-                  </li>
-                ))}
+                {aboutContent.experience[locale].map((e) => {
+                  const logo = getInstitutionLogo(e)
+                  return (
+                    <li
+                      key={e}
+                      className="flex items-center gap-3 rounded-2xl bg-cream-soft px-4 py-3 text-sm text-ink"
+                    >
+                      {logo && (
+                        <img
+                          src={logo}
+                          alt=""
+                          width={28}
+                          height={28}
+                          className="h-7 w-7 shrink-0 object-contain"
+                        />
+                      )}
+                      <span>{e}</span>
+                    </li>
+                  )
+                })}
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-ink">{t('educationTitle')}</h2>
               <ul className="mt-4 space-y-3">
-                {aboutContent.education.map((e) => (
-                  <li
-                    key={e.school}
-                    className="flex flex-col rounded-2xl bg-cream-soft px-4 py-3"
-                  >
-                    <span className="text-base font-semibold text-ink">{e.school}</span>
-                    <span className="text-sm text-ink/70">{e.degree[locale]}</span>
-                  </li>
-                ))}
+                {aboutContent.education.map((e) => {
+                  const logo = getInstitutionLogo(e.school)
+                  return (
+                    <li
+                      key={e.school}
+                      className="flex items-center gap-3 rounded-2xl bg-cream-soft px-4 py-3"
+                    >
+                      {logo && (
+                        <img
+                          src={logo}
+                          alt=""
+                          width={40}
+                          height={40}
+                          className="h-10 w-10 shrink-0 object-contain"
+                        />
+                      )}
+                      <div className="flex flex-col">
+                        <span className="text-base font-semibold text-ink">{e.school}</span>
+                        <span className="text-sm text-ink/70">{e.degree[locale]}</span>
+                      </div>
+                    </li>
+                  )
+                })}
               </ul>
             </section>
 
@@ -169,22 +207,36 @@ export default async function AboutPage({
             <section>
               <h2 className="text-2xl font-semibold text-ink">{t('certificatesTitle')}</h2>
               <ul className="mt-4 space-y-3">
-                {aboutContent.certificates.map((c) => (
-                  <li
-                    key={c.name[locale]}
-                    className="rounded-2xl bg-cream-soft p-4"
-                  >
-                    <div className="text-sm font-semibold text-ink">
-                      {c.name[locale]}
-                    </div>
-                    <div className="mt-1 text-xs text-ink/70">{c.trainer[locale]}</div>
-                    {c.accreditation[locale] !== '—' && (
-                      <div className="mt-1 inline-block rounded-full bg-ink/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-ink">
-                        {c.accreditation[locale]}
+                {aboutContent.certificates.map((c) => {
+                  const logo = getInstitutionLogo(c.trainer[locale])
+                  return (
+                    <li
+                      key={c.name[locale]}
+                      className="flex items-start gap-3 rounded-2xl bg-cream-soft p-4"
+                    >
+                      {logo && (
+                        <img
+                          src={logo}
+                          alt=""
+                          width={32}
+                          height={32}
+                          className="h-8 w-8 shrink-0 object-contain"
+                        />
+                      )}
+                      <div className="flex-1">
+                        <div className="text-sm font-semibold text-ink">
+                          {c.name[locale]}
+                        </div>
+                        <div className="mt-1 text-xs text-ink/70">{c.trainer[locale]}</div>
+                        {c.accreditation[locale] !== '—' && (
+                          <div className="mt-1 inline-block rounded-full bg-ink/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-ink">
+                            {c.accreditation[locale]}
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </li>
-                ))}
+                    </li>
+                  )
+                })}
               </ul>
             </section>
 

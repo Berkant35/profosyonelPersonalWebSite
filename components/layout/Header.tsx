@@ -17,9 +17,9 @@ export function Header({ locale }: { locale: Locale }) {
 
   const items: NavItem[] = [
     { href: `/${locale}/hakkimda`, key: 'about' },
+    { href: `/${locale}/online-terapi`, key: 'online' },
     { href: `/${locale}/terapi-yaklasimlari`, key: 'approaches' },
     { href: `/${locale}/calisma-alanlari`, key: 'conditions' },
-    { href: `/${locale}/online-terapi`, key: 'online' },
     { href: `/${locale}/blog`, key: 'blog' },
     { href: `/${locale}/iletisim`, key: 'contact' },
   ]

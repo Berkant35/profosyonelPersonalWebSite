@@ -39,9 +39,6 @@ export function Approaches({ locale }: { locale: Locale }) {
               <p className="mt-3 text-sm leading-relaxed text-ink/70">
                 {a.ozet[locale]}
               </p>
-              <div className="mt-5 text-xs font-semibold uppercase tracking-[0.08em] text-sea">
-                {a.sure[locale]}
-              </div>
             </Card>
           ))}
         </div>

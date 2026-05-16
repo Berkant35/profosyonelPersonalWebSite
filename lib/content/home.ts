@@ -7,7 +7,7 @@ export const homeContent: HomeContent = {
       en: 'Clinical Psychologist & Psychotherapist',
     },
     title: {
-      tr: 'Bilime dayalı, destekleyici psikoterapi',
+      tr: 'Bilimsel kanıta dayalı, destekleyici psikoterapi',
       en: 'Evidence-based, supportive psychotherapy',
     },
     subtitle: {
@@ -74,8 +74,8 @@ export const homeContent: HomeContent = {
       {
         title: { tr: 'İlk iletişim', en: 'First contact' },
         desc: {
-          tr: 'WhatsApp veya e-posta ile ilk görüşmenizi planlıyoruz.',
-          en: 'We schedule the first meeting via WhatsApp or email.',
+          tr: 'WhatsApp, e-posta veya telefon ile ilk görüşmenizi planlıyoruz.',
+          en: 'We schedule the first meeting via WhatsApp, email or phone.',
         },
       },
       {
@@ -88,8 +88,8 @@ export const homeContent: HomeContent = {
       {
         title: { tr: 'Süreç', en: 'Process' },
         desc: {
-          tr: 'Ortalama 45–50 dk seanslarla, haftalık ritimde çalışıyoruz.',
-          en: '45–50 minute sessions, typically on a weekly cadence.',
+          tr: 'Ortalama 50 dk seanslarla planlanan ritimde çalışıyoruz.',
+          en: 'Around 50-minute sessions in a planned rhythm.',
         },
       },
       {

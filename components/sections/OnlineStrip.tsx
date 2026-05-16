@@ -12,16 +12,13 @@ export function OnlineStrip({ locale }: { locale: Locale }) {
     <section className="bg-ink py-16 text-cream lg:py-24">
       <Container className="grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <Pill tone="inkOnDark">{locale === 'tr' ? 'Online' : 'Online'}</Pill>
+          <Pill tone="inkOnDark">{locale === 'tr' ? 'Terapi' : 'Therapy'}</Pill>
           <h2 className="mt-4 text-3xl font-semibold text-cream sm:text-4xl">
             {t('onlineStripTitle')}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-cream/80">
             {t('onlineStripText')}
           </p>
-          <blockquote className="mt-6 border-l-2 border-cream/30 pl-4 text-base italic text-cream/85">
-            “{onlineStrip.quote[locale]}”
-          </blockquote>
           <div className="mt-8">
             <Button
               href={`/${locale}/online-terapi`}

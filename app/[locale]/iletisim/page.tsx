@@ -56,8 +56,14 @@ export default async function ContactPage({
                     rel="noopener noreferrer"
                     className="group flex items-start gap-3"
                   >
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
-                      <span aria-hidden="true">●</span>
+                    <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15 p-1.5">
+                      <img
+                        src="/logos/whatsapp.svg"
+                        alt=""
+                        width={20}
+                        height={20}
+                        className="h-full w-full"
+                      />
                     </span>
                     <span>
                       <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-ink/60">
@@ -74,8 +80,14 @@ export default async function ContactPage({
                     href={`mailto:${siteSettings.email}`}
                     className="group flex items-start gap-3"
                   >
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink/10 text-ink">
-                      @
+                    <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EA4335]/15 p-1.5">
+                      <img
+                        src="/logos/gmail.svg"
+                        alt=""
+                        width={20}
+                        height={20}
+                        className="h-full w-full"
+                      />
                     </span>
                     <span>
                       <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-ink/60">
@@ -94,8 +106,14 @@ export default async function ContactPage({
                     rel="noopener noreferrer"
                     className="group flex items-start gap-3"
                   >
-                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0a66c2]/15 text-[#0a66c2]">
-                      in
+                    <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0a66c2]/15 p-1.5">
+                      <img
+                        src="/logos/linkedin.svg"
+                        alt=""
+                        width={20}
+                        height={20}
+                        className="h-full w-full"
+                      />
                     </span>
                     <span>
                       <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-ink/60">
