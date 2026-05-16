@@ -17,7 +17,15 @@ export function Hero({ locale }: { locale: Locale }) {
             {hero.title[locale]}
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/80 lg:text-lg">
-            {hero.subtitle[locale]}
+            {hero.subtitle[locale].map((part, i) =>
+              part.bold ? (
+                <strong key={i} className="font-semibold text-ink">
+                  {part.text}
+                </strong>
+              ) : (
+                <span key={i}>{part.text}</span>
+              ),
+            )}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={siteSettings.whatsappUrl} external size="lg">
